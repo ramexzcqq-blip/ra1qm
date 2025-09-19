@@ -1,0 +1,501 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0d1117 0%, #161b22 100%);
+    color: #c9d1d9;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.header {
+    background-color: #161b22;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #30363d;
+}
+
+.logo-btn {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #58a6ff;
+    cursor: pointer;
+    background: none;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.logo-btn:hover {
+    color: #79c0ff;
+    transform: scale(1.05);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-btn {
+    background-color: #238636;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background-color: #2ea043;
+}
+
+.main-content {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.welcome-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.server-ip {
+    font-size: 1.3rem;
+    color: #58a6ff;
+    margin-bottom: 2rem;
+    background-color: #161b22;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #30363d;
+}
+
+.copy-btn {
+    background: none;
+    border: none;
+    color: #8b949e;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.copy-btn:hover {
+    color: #58a6ff;
+    background-color: #21262d;
+}
+
+.tabs {
+    margin: 2rem auto;
+    max-width: 1000px;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.server-status-card {
+    background-color: #161b22;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #30363d;
+    margin-bottom: 2rem;
+}
+
+.status-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-pulse {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #58a6ff;
+    animation: pulse 2s infinite;
+}
+
+.status-text {
+    font-weight: bold;
+}
+
+.refresh-btn {
+    background: none;
+    border: none;
+    color: #8b949e;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 3px;
+    transition: all 0.2s;
+}
+
+.refresh-btn:hover {
+    color: #58a6ff;
+    background-color: #21262d;
+}
+
+.server-info {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.server-info p {
+    margin-bottom: 0.5rem;
+}
+
+.server-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.action-btn {
+    background-color: #238636;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.action-btn:hover {
+    background-color: #2ea043;
+}
+
+/* Стили для игры */
+.game-container {
+    background-color: #161b22;
+    border-radius: 10px;
+    padding: 1.5rem;
+    border: 1px solid #30363d;
+    margin-bottom: 2rem;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat {
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    background: rgba(33, 38, 45, 0.9);
+    min-width: 80px;
+}
+
+.stat-label {
+    display: block;
+    color: #8b949e;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.game-area {
+    position: relative;
+    height: 400px;
+    background: rgba(13, 17, 23, 0.5);
+    border-radius: 8px;
+    border: 1px solid #30363d;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.game-instructions {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+}
+
+/* Стили для ресурсов в игре */
+.resource {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    transition: all 0.3s ease;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid transparent;
+    box-shadow: 0 0 15px currentColor;
+    animation: float 3s ease-in-out infinite;
+}
+
+.resource:hover {
+    transform: scale(1.2) rotate(10deg);
+    box-shadow: 0 0 25px currentColor;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Анимация сбора ресурса */
+@keyframes collect {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+.collect-animation {
+    animation: collect 0.5s ease-out forwards;
+}
+
+/* Галерея изображений */
+.image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 3rem auto;
+    max-width: 1200px;
+}
+
+.image-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 250px;
+}
+
+.image-item:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.image-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Виньетка эффект для изображений */
+.image-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0, 0, 0, 0.5) 100%);
+    pointer-events: none;
+}
+
+/* Модальное окно с анимацией */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background-color: #161b22;
+    border-radius: 10px;
+    padding: 2rem;
+    width: 90%;
+    max-width: 600px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(50px) scale(0.9);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid #30363d;
+}
+
+.modal-overlay.active .modal-content {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 1.5rem;
+    color: #8b949e;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-button:hover {
+    color: #58a6ff;
+}
+
+.server-info {
+    margin-top: 1.5rem;
+}
+
+.info-item {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background-color: #21262d;
+    border-radius: 5px;
+    border-left: 3px solid #58a6ff;
+}
+
+.info-item h3 {
+    margin-top: 0;
+    color: #58a6ff;
+    font-size: 1.1rem;
+}
+
+.info-item p {
+    margin-bottom: 0;
+    color: #c9d1d9;
+}
+
+.loading {
+    text-align: center;
+    padding: 2rem;
+    color: #8b949e;
+}
+
+.error {
+    color: #f85149;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Анимации */
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.info-item {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.info-item:nth-child(1) { animation-delay: 0.1s; }
+.info-item:nth-child(2) { animation-delay: 0.2s; }
+.info-item:nth-child(3) { animation-delay: 0.3s; }
+.info-item:nth-child(4) { animation-delay: 0.4s; }
+.info-item:nth-child(5) { animation-delay: 0.5s; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .welcome-text {
+        font-size: 2rem;
+    }
+    
+    .image-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1rem;
+    }
+    
+    .image-item {
+        height: 180px;
+    }
+    
+    .server-actions {
+        flex-direction: column;
+    }
+    
+    .game-stats {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .stat {
+        min-width: auto;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}
