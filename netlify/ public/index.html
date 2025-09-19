@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REMQ Сервер Minecraft</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <button class="logo-btn" id="logo-btn">REMQ</button>
+        <div class="nav-buttons">
+            <button class="nav-btn" data-tab="server">Сервер</button>
+            <button class="nav-btn" data-tab="game">Мини-игра</button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="welcome-text">Приветствую, на нашем сервере</h1>
+        
+        <div class="server-ip">
+            IP сервера: tcp.cloudpub.ru:27271
+            <button class="copy-btn" id="copy-ip">
+                <i class="fas fa-copy"></i>
+            </button>
+        </div>
+
+        <div class="tabs">
+            <!-- Вкладка информации о сервере -->
+            <div id="server-tab" class="tab-content active">
+                <div class="server-status-card">
+                    <div class="status-header">
+                        <h3>Статус сервера</h3>
+                        <div class="status-indicator" id="status-indicator">
+                            <div class="status-pulse"></div>
+                            <span class="status-text">Проверка...</span>
+                        </div>
+                        <button class="refresh-btn" id="refresh-status">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="server-info">
+                        <p><strong>Игроков онлайн:</strong> <span id="players-online">0</span>/20</p>
+                        <p><strong>Версия:</strong> <span id="server-version">1.21.5</span></p>
+                    </div>
+                    
+                    <div class="server-actions">
+                        <button class="action-btn" id="mods-btn">
+                            <i class="fas fa-download"></i> Моды и ресурспаки
+                        </button>
+                        <button class="action-btn" onclick='navigator.clipboard.writeText("tcp.cloudpub.ru:27271")'>
+                            <i class="fas fa-copy"></i> Скопировать IP
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка мини-игры -->
+            <div id="game-tab" class="tab-content">
+                <div class="game-container">
+                    <div class="game-stats">
+                        <div class="stat">
+                            <span class="stat-label">Счёт</span>
+                            <span id="score">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Время</span>
+                            <span id="time">60</span>
+                        </div>
+                    </div>
+                    
+                    <div class="game-area" id="game-area">
+                        <div class="game-instructions">
+                            <p>Кликай на алмазы и изумруды, чтобы собирать их!</p>
+                            <button class="action-btn" id="start-game">Начать игру</button>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button class="action-btn" id="reset-game">
+                            <i class="fas fa-redo"></i> Сбросить игру
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="image-gallery">
+            <div class="image-item">
+                <img src="https://cdn.imgbin.com/19/9/17/imgbin-minecraft-pocket-edition-bread-minecraft-story-mode-season-two-bread-j2fPJVQ7HgMCxZLB2dMsgzFjT.jpg" alt="Minecraft Bread">
+            </div>
+            <div class="image-item">
+                <img src="https://i.pinimg.com/736x/05/01/c2/0501c244b29b1874a7299a600c3a8204.jpg" alt="Minecraft Character">
+            </div>
+            <div class="image-item">
+                <img src="https://i.pinimg.com/736x/88/d9/d3/88d9d30f9a13082ed1a27b40cd9fab8c.jpg" alt="Minecraft Scene">
+            </div>
+        </div>
+    </main>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content">
+            <button class="close-button" id="close-modal">&times;</button>
+            <h2>Информация о сервере</h2>
+            <div class="server-info" id="server-info">
+                <div class="loading">Загрузка информации о сервере...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
